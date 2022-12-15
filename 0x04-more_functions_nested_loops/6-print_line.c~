@@ -1,0 +1,14 @@
+#include "main.h"
+
+/**
+ * print_line - print lines on the terminal
+ * @n: length of lines in "_" to be printed
+ */
+
+void print_line(int n)
+{
+	while (n--)
+	{
+		_putchar(n);
+	}
+}
