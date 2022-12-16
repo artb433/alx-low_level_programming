@@ -1,28 +1,20 @@
 #include "main.h"
 
 /**
- * print_line - print lines on the terminal
- * @n: length of lines in "_" to be printed
+ * print_line - printing lines
+ * @n: number of times
+ *
+ * Return: void
  */
+
 
 void print_line(int n)
 {
-	int start;
+	int i;
 
-	start = 1;
-
-	if (n > 0)
+	for (i = 0; i < n; i++)
 	{
-		while (start <= n)
-		{
-			_putchar('_');
-			start++;
-		}
-
-		_putchar('\n');
+		_putchar('_');
 	}
-	else
-	{
-		_putchar('\n');
-	}
+	_putchar('\n');
 }
