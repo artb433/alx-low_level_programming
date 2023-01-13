@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include "main.h"
+
+/**
+ * main - Entry point
+ * Return: return 0 on completion
+ */
+int main(void)
+{
+	int num = 612852475143;
+	int counter;
+
+	for (counter = 2; num > 1; counter++)
+	{
+		while(num % counter == 0)
+		{
+			num = num / counter;
+		}
+	}
+
+	printf("%d\n", counter);
+}

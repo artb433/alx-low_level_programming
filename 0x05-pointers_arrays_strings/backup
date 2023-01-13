@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+
+/**
+ * _atoi - match integers in string
+ * @s: string to be sorted
+ */
+int _atoi(char *s)
+{
+	int num;
+	int index;
+	int length;
+	int counter;
+
+	char *result[20];
+
+	index = 0;
+	length = strlen(s);
+
+	if (length > 0)
+	{
+		for (counter = 0; counter <= length; counter++)
+		{
+			for (num = 0; num <= 9; num++)
+			{
+				if (s[counter] == num)
+				{
+					if (s[counter - 1] == '+' || s[counter - 1] == '-')
+					{
+						*result[index] = s[counter];
+						index++;
+					}
+					else
+					{
+						*result[index] = s[counter];
+						index++;
+					}
+				}
+				else
+				{
+					return (0);
+				}
+			}
+		}
+	}
+
+	printf("%c\n", result);
+}

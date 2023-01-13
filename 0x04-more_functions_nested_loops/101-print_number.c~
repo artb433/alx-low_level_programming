@@ -1,0 +1,18 @@
+#include "main.h"
+
+/**
+ * print_number - print integers
+ * @n: integer to be printed
+ */
+
+void print_number(int n)
+{
+	int calc1;
+	int calc2;
+
+	calc1 = (n / 10) + '00';
+	calc2 = (n % 10) + '00';
+
+	_putchar(calc1);
+	_putchar(calc2);
+}

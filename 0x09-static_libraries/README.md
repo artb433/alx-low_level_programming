@@ -1,1 +1,1 @@
-0x09. C - Static libraries
+This is the directory for my tenth project on c
