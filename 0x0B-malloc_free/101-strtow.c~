@@ -1,0 +1,54 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * **strtow - split a string into words
+ *
+ * @str: string to be split
+ *
+ * Return: pointer to pointer to char or null on failure
+ */
+
+char **strtow(char *str)
+{
+	int i = 0, j = 0, k = 0, str_len = 0, wcount = 0, ccount = 0;
+
+	char **arr;
+
+	/* get word count and character count*/
+	while (str[i] != '\0')
+	{
+		str_len++;
+		if (i >= 1 && str[i] == ' ' && str[i - 1] != ' ')
+			wcount += 1;
+
+		if (str[i] != ' ')
+			ccount += 1;
+		i++;
+	}
+	if (str[i - 1] != ' ')
+		wcount++;
+
+	/* allocate memory for rows */
+	if (wcount > 0)
+		arr = malloc(wcount * sizeof(char *));
+	if (arr == NULL)
+		return (NULL);
+
+	/* allocate memory for cols*/
+	for (i = 0; i < wcount; i++)
+		arr[i] = malloc(ccount * sizeof(char) + wcount);
+	for (i = 0; i < wcount; i++)
+	{
+		for (j = 0; j < ccount; j++)
+		{
+			if (str[k] != ' ')
+				arr[i][j] = str[k];
+			if (str[k] == ' ' && str[k + 1] != ' '  && k > 0)
+				arr[i][j] = '\0';
+			k++;
+		}
+	}
+
+	return (arr);
+}
