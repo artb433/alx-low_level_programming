@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git add .
+git commit -m "made changes to fix failing checks"
+git push
