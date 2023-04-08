@@ -1,31 +1,48 @@
-#include <string.h>
 #include "hash_tables.h"
-
+#include <string.h>
 
 /**
- * hash_table_get - Retrieve the value associated with
- *                  a key in a hash table.
- * @ht: A pointer to the hash table.
- * @key: The key to get the value of.
+ * hash_table_get - retrive a value associated with a key
  *
- * Return: If the key cannot be matched - NULL.
- *         Otherwise - the value associated with key in ht.
+ * @ht: hash table to retrieve value from
+ * @key: key whose value is to be retrieved
+ *
+ * Return: value associated with the element or NULL if \
+ *         key could not be found
  */
+
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	hash_node_t *node;
+	hash_node_t *temp;
 	unsigned long int index;
 
-	if (ht == NULL || key == NULL || *key == '\0')
+	if (ht == NULL)
 		return (NULL);
 
-	index = key_index((const unsigned char *)key, ht->size);
-	if (index >= ht->size)
-		return (NULL);
+	index = key_index((unsigned char *) key, ht->size);
 
-	node = ht->array[index];
-	while (node && strcmp(node->key, key) != 0)
-		node = node->next;
+	if (ht->array[index] != NULL)
+	{
+		if (ht->array[index]->next != NULL)
+		{
+			if (strcmp(ht->array[index]->key, key) == 0)
+				return (ht->array[index]->value);
 
-	return ((node == NULL) ? NULL : node->value);
+			temp = ht->array[index];
+			while (temp != NULL)
+			{
+				if (strcmp(temp->key, key) == 0)
+					return (temp->value);
+
+				temp = temp->next;
+			}
+		}
+		else
+		{
+			if (strcmp(ht->array[index]->key, key) == 0)
+				return (ht->array[index]->value);
+		}
+	}
+
+	return (NULL);
 }

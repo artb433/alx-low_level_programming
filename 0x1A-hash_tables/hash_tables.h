@@ -45,8 +45,11 @@ typedef struct hash_table_s
 /****************************************************/
 /*               FUNCTION PROTOTYPES                */
 /****************************************************/
+void hash_table_delete(hash_table_t *ht);
+void hash_table_print(const hash_table_t *ht);
 unsigned long int hash_djb2(const unsigned char *str);
 hash_table_t *hash_table_create(unsigned long int size);
+char *hash_table_get(const hash_table_t *ht, const char *key);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 

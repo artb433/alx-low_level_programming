@@ -1,21 +1,24 @@
-#include <stdlib.h>
 #include "lists.h"
+
 /**
- * free_list - frees a list_t list
- * @head: pointer to the start of the list
+ * free_list - free the total amount of memory allocated to a list
  *
- * Return: void
+ * @head: pointer to head of list
  */
+
 void free_list(list_t *head)
 {
-	list_t *current, *next;
+	list_t *curr;
 
-	current = head;
-	while (current != NULL)
+	if (head != NULL)
 	{
-		next = current->next;
-		free(current->str);
-		free(current);
-		current = next;
+		curr = head;
+		head = head->next;
+
+		free(curr->str);
+		free(curr);
+
+		/* use recursion to free allocated memory */
+		free_list(head);
 	}
-}/*Author: davidinmichael*/
+}

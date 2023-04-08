@@ -1,25 +1,41 @@
-#include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
- * leet - encodes a string into 1337
- * @s: string to encode
+ * *leet - replace specified characters in a string
+ * @string: string to be parsed
  *
- * Return: address of s
+ * Return: return string
  */
-char *leet(char *s)
-{
-	int i, j;
-	char a[] = "aAeEoOtTlL";
-	char b[] = "4433007711";
 
-	for (i = 0; *(s + i); i++)
+char *leet(char *string)
+{
+	int counter;
+	int length;
+	unsigned long int index;
+
+	int find[] = {
+		97, 65, 101, 69, 111, 79,
+		116, 84, 108, 76
+	};
+
+	int replace[] = {
+		52, 52, 51, 51, 48, 48,
+		55, 55, 49, 49
+	};
+
+	length = strlen(string);
+
+	for (counter = 0; counter < length; counter++)
 	{
-		for (j = 0; j <= 9; j++)
+		for (index = 0; index < 11; index++)
 		{
-			if (a[j] == s[i])
-				s[i] = b[j];
+			if (string[counter] == find[index])
+			{
+				string[counter] = replace[index];
+			}
 		}
 	}
-	return (s);
+
+	return (string);
 }
-/* Doing hard things is a must */

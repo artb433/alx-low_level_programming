@@ -1,1 +1,1 @@
-This is the readme file for this task, it will be updated soon.
+This directory contains the solutions for the single linked lists project.

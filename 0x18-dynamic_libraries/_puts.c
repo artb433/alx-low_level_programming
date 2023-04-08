@@ -1,19 +1,9 @@
-#include "main.h"
 /**
- * _puts - prints a string to stdout
- * @str: pointer parameter
- * Author: sammykingx
+ * _puts - dummy function
+ *
+ * @s: dummy parameter
  */
 
-void _puts(char *str)
+void _puts(char *s)
 {
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		_putchar(str[i]);
-		i++;
-	}
-
-	_putchar('\n');
 }

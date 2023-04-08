@@ -1,1 +1,1 @@
-This project is about the basics of C programming
+This is the root of the 0x00. C - Hello, World project

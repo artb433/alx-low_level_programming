@@ -1,27 +1,45 @@
-#include "main.h"
+#include <string.h>
 
 /**
- * rot13 - encodes a string into rot13
- * @s: string to encode
+ * *rot13 - encrypt string to rot13
+ * @string: string to be encrypted
  *
- * Return: address of s
+ * Return: return encrypted string
  */
-char *rot13(char *s)
+char *rot13(char *string)
 {
-	int i, j;
-	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	int counter;
+	int length;
+	int index;
 
-	for (i = 0; *(s + i); i++)
+	int find[] = {
+		65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77,
+		78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+		97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109,
+		110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122
+	};
+
+	int replace[] = {
+		78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+		65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77,
+		110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121,
+		122, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108,
+		109
+	};
+
+	length  = strlen(string);
+
+	for (counter = 0; counter <= length; counter++)
 	{
-		for (j = 0; j < 52; j++)
+		for (index = 0; index < 54; index++)
 		{
-			if (a[j] == *(s + i))
+			if (string[counter] == find[index])
 			{
-				*(s + i) = b[j];
-				break;
+				string[counter] = replace[index];
 			}
 		}
+
 	}
-	return (s);
+
+	return (string);
 }

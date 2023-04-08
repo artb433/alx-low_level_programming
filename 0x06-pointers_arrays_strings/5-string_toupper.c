@@ -1,21 +1,30 @@
-#include "main.h"
+#include <string.h>
+
 /**
- * string_toupper - change lowercase to uppercase
- * @s:string
- * Return:char
+ * *string_toupper - convert lowercase strings to uppercase
+ * @alpha: pointer to string to be converted
+ *
+ * Return: return pointer to converted string
  */
-char *string_toupper(char *s)
+
+char *string_toupper(char *alpha)
 {
+	int index;
+	int length;
+	int counter;
 
-	int i;
+	index = 0;
+	length = strlen(alpha);
 
-i = 0;
-	while (*(s + i))
+	for (counter = 0; counter <= length; counter++)
 	{
-		if (*(s + i) >= 'a' && *(s + i) <= 'z')
-			*(s + i) -= 'a' - 'A';
-		i++;
+		if (alpha[index] >= 97 && alpha[index] <= 122)
+		{
+			alpha[index] -= 32;
+		}
+
+		index++;
 	}
-	return (s);
+
+	return (alpha);
 }
-/*Bwave ICT */

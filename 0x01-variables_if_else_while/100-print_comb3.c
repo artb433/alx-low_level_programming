@@ -1,36 +1,36 @@
 #include <stdio.h>
+
 /**
- * main - print numbers from 00 to 99.
+ * main - Entry point
  *
- * Return: 0 on success
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i = '0';
-	int j = '0';
+	int fnum;
+	int lnum;
 
-	while (i <= '9')
+	fnum = '0';
+	lnum = '0';
+
+	for (fnum = '0'; fnum <= '9'; fnum++)
 	{
-		while (j <= '9')
+		for (lnum = '0'; lnum <= '9'; lnum++)
 		{
-			if (!(i > j || i == j))
+			if (!((fnum == lnum) || (lnum < fnum)))
 			{
-				putchar(i);
-				putchar(j);
-				if (i == '8' && j == '9')
-				{
-					putchar('\n');
-				}
-				else
+				putchar(fnum);
+				putchar(lnum);
+
+				if (!(lnum == '9' && fnum == '8'))
 				{
 					putchar(',');
 					putchar(' ');
 				}
 			}
-			j++;
 		}
-		j = '0';
-		i++;
 	}
+
+	putchar('\n');
 	return (0);
 }

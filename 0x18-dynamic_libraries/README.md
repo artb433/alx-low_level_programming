@@ -1,3 +1,1 @@
-# Dynmic Libraries in c
-![dynamic_libraries](https://calmops.com/images/static-lib.png)
-
+Directory for 19th low level programming project on C

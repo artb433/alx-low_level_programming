@@ -1,1 +1,1 @@
-Functions nested loop - C programming
+This is the directory for the third alx project on c

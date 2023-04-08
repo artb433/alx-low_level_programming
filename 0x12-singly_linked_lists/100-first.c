@@ -1,13 +1,12 @@
-#include <stdio.h>
+#include "lists.h"
 
-void first(void) __attribute__ ((constructor));
 /**
- * first - prints something before main
- *
- * Return: void
+ * pre_print - constructor function to print data
+ * before the execution of main functino
  */
-void first(void)
+
+void pre_print(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
-}/*Author: davidinmichael*/
+}

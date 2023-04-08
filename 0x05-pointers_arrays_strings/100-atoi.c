@@ -1,40 +1,33 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * _atoi - Convert a string to an integer.
- * @s: The pointer to convert
- *
- * Return: A integer
+ * _atoi - match integers in string
+ * @s: string to be sorted
  */
 int _atoi(char *s)
 {
-	int c = 0;
-	unsigned int ni = 0;
-	int min = 1;
-	int isi = 0;
+	int num;
+	int index;
+	int length;
+	int counter;
+	int result;
 
-	while (s[c])
+	index = 0;
+	length = strlen(s);
+
+	if (length > 0)
 	{
-		if (s[c] == 45)
+		for (counter = 0; counter <= length; counter++)
 		{
-			min *= -1;
+			for (num = 0; num <= 9; num++)
+			{
+				result = atoi(s[index]);
+				index++;
+			}
 		}
-
-		while (s[c] >= 48 && s[c] <= 57)
-		{
-			isi = 1;
-			ni = (ni * 10) + (s[c] - '0');
-			c++;
-		}
-
-		if (isi == 1)
-		{
-			break;
-		}
-
-		c++;
 	}
 
-	ni *= min;
-	return (ni);
+	return (result);
 }

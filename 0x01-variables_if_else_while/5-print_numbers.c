@@ -1,11 +1,20 @@
 #include <stdio.h>
+
 /**
- * main - Prints the numbers from 0-9.
+ * main - Entry point
  *
- * Return: 0 on success
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	printf("0123456789\n");
+	int num = 0;
+
+	while (num <= 9)
+	{
+		printf("%d", num);
+		num++;
+	}
+
+	printf("\n");
 	return (0);
 }

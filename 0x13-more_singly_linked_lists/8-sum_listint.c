@@ -1,19 +1,29 @@
 #include "lists.h"
 
 /**
- * sum_listint - returns the sum of all the data (n) of a listint_t linked list
- * @head: pointer to the first node in the list
+ * sum_listint - sum the values on the address field of a linked list
  *
- * Return: sum of all the data (n) of a listint_t linked list
+ * @head: head of linked list
+ *
+ * Return: 0 if the list is empty or sum upon completion
  */
+
 int sum_listint(listint_t *head)
 {
-	int sum = 0;
+	int sum;
+	listint_t *temp;
 
-	while (head != NULL)
+	if (head == NULL)
+		return (0);
+
+	sum = 0;
+	temp = head;
+
+	while (temp)
 	{
-		sum += head->n;
-		head = head->next;
+		sum += temp->n;
+		temp = temp->next;
 	}
+
 	return (sum);
 }
