@@ -1,18 +1,17 @@
 #include "hash_tables.h"
 
 /**
- * key_index - return the index where a hash key should be stored
+ * key_index - Get the index which a key/value
+ *      pair should be stored in array of a hash table.
+ * @key: The key to get the index of.
+ * @size: The size of the array of the hash table.
  *
- * @key: key in the (python dictionary like) array
- * @size: size of the array of the hash table
+ * Return: The index of the key.
  *
- * Return: the index where the key/value pair will be stored
+ *
+ * Description: Uses the djb2 algorithm.
  */
-
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
-	unsigned long int hash_table_index;
-
-	hash_table_index = hash_djb2(key);
-	return (hash_table_index % size);
+	return (hash_djb2(key) % size);
 }
